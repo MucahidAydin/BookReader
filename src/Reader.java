@@ -5,6 +5,11 @@ public class Reader {
     private int age;
     private char sex;
 
+    public Reader(String name, int age, char sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
     public String getName() {
         return name;
     }

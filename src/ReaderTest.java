@@ -1,31 +1,25 @@
 public class ReaderTest {
     public static void main(String[] args) {
-        Author stefanZweig = new Author();
-        stefanZweig.setName("Stefan Zweig");
+        Author stefanZweig = new Author("Stefan Zweig");
+
         System.out.println(stefanZweig.getName());
+        System.out.println("Oluşturulan nesne sayısı : " + Book.howManyInstance());
 
-        Book satranc = new Book();
-        satranc.setTitle("Satranç");
-        satranc.setAuthor(stefanZweig);
-        satranc.setPage(85);
-        satranc.setHardCover(false);
-        satranc.setCurrentPage(0);
-        satranc.setType("Uzun hikâye, Kurgu");
 
-        Book dununDunyasi = new Book();
-        dununDunyasi.setTitle("Dünün Dünyası");
-        dununDunyasi.setAuthor(stefanZweig);
-        dununDunyasi.setPage(496);
-        dununDunyasi.setHardCover(true);
-        dununDunyasi.setCurrentPage(0);
-        dununDunyasi.setType("Biyografi");
+        Book satranc = new Book(stefanZweig, "Satranç", 85, "Uzun hikâye, Kurgu", false, 0);
+        System.out.println(stefanZweig.getBook().getTitle());
+        System.out.println("Oluşturulan nesne sayısı : " + Book.howManyInstance());
+
+
+        Book dununDunyasi = new Book(stefanZweig, "Dünün Dünyası", 496, "Biyografi", true, 0);
+        System.out.println("Oluşturulan nesne sayısı : " + Book.howManyInstance());
 
         System.out.println(dununDunyasi.getTitle());
+        System.out.println(stefanZweig.getBook().getTitle());
+        System.out.println("-----------------------");
 
-        Reader reader1 = new Reader();
-        reader1.setName("Mücahid");
-        reader1.setAge(25);
-        reader1.setSex('M');
+
+        Reader reader1 = new Reader("Mücahid", 25, 'M');
 
         reader1.read(satranc);
         reader1.read(satranc);

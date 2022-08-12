@@ -5,6 +5,26 @@ public class Book {
     private String type;
     private boolean isHardCover;
     private int currentPage;
+    private static int counter = 0;//metaspace
+
+    public Book(Author author, String title, int page, String type, boolean isHardCover, int currentPage) {
+        this.author = author;
+        this.title = title;
+        this.page = page;
+        this.type = type;
+        this.isHardCover = isHardCover;
+        this.currentPage = currentPage;
+        author.setBook(this);
+        instanceCounter();
+    }
+
+    private static void instanceCounter() {
+        counter++;
+    }
+
+    static int howManyInstance() {
+        return counter;
+    }
 
     public Author getAuthor() {
         return author;
